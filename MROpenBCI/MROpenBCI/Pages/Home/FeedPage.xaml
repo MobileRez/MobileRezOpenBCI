@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MROpenBCI.Controls"
+             x:Class="MROpenBCI.Pages.Home.FeedPage"
+             BackgroundColor="{DynamicResource WindowBackgroundTable}">
+
+    <ScrollView Grid.RowSpan="2">
+
+        <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                         Spacing="{DynamicResource CardSpacing}"
+                         Padding="{DynamicResource CardPadding}">
+
+            <controls:CardView>
+                <StackLayout Spacing="0">
+                    <controls:LabelSection Text="Device Info"/>
+                    <controls:HeaderDivider/>
+                    <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
+                        <Label Text="Connection Status" Style="{DynamicResource MROpenBCIListItemTextStyle}" />
+                        <Label Text="{Binding LastConnectivityDisplay}" 
+                               Style="{DynamicResource DriverAssistantListItemDetailTextStyle}"/>
+                    </StackLayout>
+                    <controls:SectionDivider/>
+                    <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
+                        <Entry Text="{Binding DeviceIpAddress}" Placeholder="Enter Board IP Address" />
+                        <Button Command="" Text="Connect to Device" />
+                    </StackLayout>
+                    <controls:SectionDivider/>
+                    <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
+                        <Label Text="Connected Board" Style="{DynamicResource MROpenBCIListItemTextStyle}"/>
+                        <Label Text="{Binding ConnectedBoardName}" 
+                               Style="{DynamicResource DriverAssistantListItemDetailTextStyle}"/>
+                    </StackLayout>
+                    <controls:SectionDivider/>
+                    <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
+                        <Label Text="Number of Channles" Style="{DynamicResource MROpenBCIListItemTextStyle}" />
+                        <Label Text="{Binding ConnectedBoardChannelNumber}" 
+                               Style="{DynamicResource DriverAssistantListItemDetailTextStyle}" />
+                    </StackLayout>
+                    <controls:SectionDivider/>
+                    <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
+                        <Label Text="Gains" Style="{DynamicResource MROpenBCIListItemTextStyle}" />
+                        <Label Text="{Binding ConnectedBoardGains}" 
+                               Style="{DynamicResource DriverAssistantListItemDetailTextStyle}" />
+                    </StackLayout>
+
+                </StackLayout>
+            </controls:CardView>
+
+        </StackLayout>
+
+
+    </ScrollView>
+
+</ContentPage>

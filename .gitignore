@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/MROpenBCI/MROpenBCI.Android/obj
+/MROpenBCI/MROpenBCI/obj
+/MROpenBCI/MROpenBCI.Android/MROpenBCI.Android.csproj.user
+/MROpenBCI/MROpenBCI.iOS/obj

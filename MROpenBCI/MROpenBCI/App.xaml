@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MROpenBCI.App">
+	<Application.Resources>
+        <!--App Colors-->
+        <Color x:Key="Primary">#12A54A</Color>
+        <Color x:Key="PrimaryDark">#0E843b</Color>
+        <Color x:Key="Accent">#7BC144</Color>
+        <Color x:Key="NavigationText">#000000</Color>
+        <Color x:Key="LabelSectionText">#6D6D72</Color>
+        <Color x:Key="DetailTextColor">#979797</Color>
+        <Color x:Key="BlackColor">#000000</Color>
+        <Color x:Key="WhiteColor">#FFFFFF</Color>
+
+        <!-- Dark Mode Colors-->
+
+        <!--Thickness-->
+        <Thickness x:Key="StandardPadding">16</Thickness>
+
+        <!--Double Values-->
+        <x:Double x:Key="StandardSpacing">16</x:Double>
+
+        <!--OnPlatform Arguments-->
+        <OnPlatform x:TypeArguments="x:String" x:Key="SectionLabelFontFamily">
+            <On Platform="Android" Value="sans-serif-light"/>
+            <On Platform="iOS" Value="Helvetica-Light,HelveticaNeue"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="Color" x:Key="Divider">
+            <On Platform="Android" Value="#ECECEC"/>
+            <On Platform="iOS" Value="#ECECEC"/>
+            <On Platform="WinPhone" Value="#C8C7CC"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="Color" x:Key="WindowBackgroundTable">
+            <On Platform="Android" Value="#F5F5F5"/>
+            <On Platform="iOS" Value="#EFEFF4"/>
+            <On Platform="WinPhone" Value="#EFEFF4"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="Thickness" x:Key="CardPadding">
+            <On Platform="Android" Value="8,16"/>
+            <On Platform="iOS" Value="0,0,0,16"/>
+            <On Platform="WinPhone" Value="0,0,0,16"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="CardSpacing">
+            <On Platform="Android" Value="16"/>
+            <On Platform="iOS" Value="0"/>
+            <On Platform="WinPhone" Value="0"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="LabelSectionFontSize">
+            <On Platform="Android" Value="18"/>
+            <On Platform="iOS" Value="13"/>
+            <On Platform="WinPhone" Value="13"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="LabelEntryFontSize">
+            <On Platform="Android" Value="16"/>
+            <On Platform="iOS" Value="13"/>
+            <On Platform="WinPhone" Value="13"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="SmallLabelEntryFontSize">
+            <On Platform="Android" Value="14"/>
+            <On Platform="iOS" Value="10"/>
+            <On Platform="WinPhone" Value="10"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="ActualLabelEntryFontSize">
+            <On Platform="Android" Value="15"/>
+            <On Platform="iOS" Value="15"/>
+            <On Platform="WinPhone" Value="15"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="MROpenBCIListItemDetailTextStyleSize" >
+            <On Platform="Android">13</On>
+            <On Platform="iOS">13</On>
+        </OnPlatform>
+
+        <!-- Dark Mode -->
+
+        <!-- Styles -->
+        <Style x:Key="BaseLabelTextStyle" TargetType="Label" BaseResourceKey="TitleStyle">
+            <Setter Property="FontSize" Value="{DynamicResource LabelSectionFontSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource LabelSectionText}"/>
+            <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+        </Style>
+
+        <Style x:Key="CardDetailSectionStyle" TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{DynamicResource WhiteColor}"/>
+        </Style>
+
+        <Style x:Key="DrawerLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="{DynamicResource SmallLabelEntryFontSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource BlackColor}" />
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="SectionLabelTextStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="{DynamicResource LabelSectionFontSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource LabelSectionText}"/>
+            <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+        </Style>
+
+        <Style x:Key="BaseListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+            <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+            <Setter Property="FontSize" Value="{DynamicResource LabelEntryFontSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource BlackColor}"/>
+            <Setter Property="VerticalTextAlignment" Value="{DynamicResource End}" />
+        </Style>
+
+        <Style x:Key="LabelHeaderStyle" TargetType="Label" BasedOn="{StaticResource BaseListItemTextStyle}">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="FontSize" Value="{DynamicResource ActualLabelEntryFontSize}" />
+            <Setter Property="VerticalTextAlignment" Value="{DynamicResource End}" />
+        </Style>
+
+        <Style x:Key="LabelValueStyle" TargetType="Label" BasedOn="{StaticResource BaseListItemTextStyle}">
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="FontSize" Value="{DynamicResource ActualLabelEntryFontSize}" />
+            <Setter Property="VerticalTextAlignment" Value="{DynamicResource End}" />
+        </Style>
+
+        <Style x:Key="SubLabelValueStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="{DynamicResource SmallLabelEntryFontSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}"/>
+            <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+        </Style>
+
+        <!--<Style x:Key="ProtienLabelValueStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="{DynamicResource SmallLabelEntryFontSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource ProteinColor}"/>
+            <Setter Property="FontFamily" Value="{DynamicResource SectionLabelFontFamily}"/>
+        </Style>-->
+
+        <Style x:Key="MROpenBCIListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+            <Setter Property="FontSize" Value="{DynamicResource MROpenBCIListItemDetailTextStyleSize}" />
+        </Style>
+        
+        <Style x:Key="MROpenBCIListItemDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+            <Setter Property="FontSize" Value="{DynamicResource MROpenBCIListItemDetailTextStyleSize}" />
+            <Setter Property="TextColor" Value="{DynamicResource DetailTextColor}" />
+        </Style>
+
+        <!--DarkTheme-->
+        
+
+        <!-- Button Styles -->
+        <Style x:Key="BaseButtonStyle" TargetType="Button" >
+            <Setter Property="FontAttributes" Value="{DynamicResource ButtonFontAttributes}"/>
+            <Setter Property="BorderWidth" Value="{DynamicResource ButtonBorderWidth}"/>
+        </Style>
+
+
+        <OnPlatform x:TypeArguments="Color" x:Key="PrimaryButtonBackgroundColor">
+            <On Platform="Android" Value="{StaticResource Primary}"/>
+            <On Platform="iOS" Value="Transparent"/>
+            <On Platform="UWP" Value="{StaticResource Primary}"/>
+        </OnPlatform>
+        
+        <!--PrimaryButton-->
+        <OnPlatform x:TypeArguments="Color" x:Key="PrimaryButtonTextColor">
+            <On Platform="Android" Value="{StaticResource WhiteColor}"/>
+            <On Platform="iOS" Value="{StaticResource Primary}"/>
+            <On Platform="UWP" Value="{StaticResource WhiteColor}"/>
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="Color" x:Key="PrimaryButtonBorderColor">
+            <On Platform="iOS" Value="{StaticResource Primary}"/>
+        </OnPlatform>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button" BaseResourceKey="BaseButtonStyle">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonTextColor}"/>
+            <Setter Property="BorderColor" Value="{DynamicResource PrimaryButtonBorderColor}"/>
+        </Style>
+
+        <!--Data Templates-->
+
+    </Application.Resources>
+</Application>

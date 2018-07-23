@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="0.8.0-preview" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="XamarinUniversity.Core" Version="2.0.0" />
+    <PackageReference Include="XamarinUniversity.Infrastructure" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Pages\Android\" />
+    <Folder Include="Pages\Device\" />
+    <Folder Include="Pages\EEG\" />
+    <Folder Include="Pages\iOS\" />
+    <Folder Include="Pages\macOS\" />
+    <Folder Include="Pages\Xbox\" />
+    <Folder Include="Pages\Tizen\" />
+    <Folder Include="Pages\UWP\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\LabelSection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\SectionDivider.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Home\FeedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
