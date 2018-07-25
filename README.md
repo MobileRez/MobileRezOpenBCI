@@ -11,7 +11,7 @@ More detailed description to come. for now here is some bassic stuff.
 1. anyone looking to use iOS must follow the iOS developer process there is no free workaround for the expensive iPhone you have.
 
 ## TODO
-- [ ] Wire up UI for /board wifi shield call
+- [X] Wire up UI for /board wifi shield call
 - [ ] Wire up UI for /all wifi shield call
 - [ ] Create Conversion library from Microvolts to Brain waves to be run concurrently for up to 16 channles
 - [ ] Add Android Navigation section
