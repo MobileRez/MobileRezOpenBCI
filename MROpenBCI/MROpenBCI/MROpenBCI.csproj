@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Pages\Android\" />
     <Folder Include="Pages\Device\" />
     <Folder Include="Pages\EEG\" />
@@ -23,7 +22,6 @@
     <Folder Include="Pages\Xbox\" />
     <Folder Include="Pages\Tizen\" />
     <Folder Include="Pages\UWP\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

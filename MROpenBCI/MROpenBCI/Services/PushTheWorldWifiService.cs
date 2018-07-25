@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MROpenBCI.Helpers
+namespace MROpenBCI.Services
 {
-    public enum AppPage
+    public class PushTheWorldWifiService
     {
-        Feed = 0,
-        Device
     }
 }

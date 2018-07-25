@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MROpenBCI.Helpers
+namespace MROpenBCI.Interfaces
 {
-    public enum AppPage
+    public interface IPushTheWorldWifiService
     {
-        Feed = 0,
-        Device
+
     }
 }

@@ -23,18 +23,18 @@
                     <controls:SectionDivider/>
                     <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
                         <Entry Text="{Binding DeviceIpAddress}" Placeholder="Enter Board IP Address" />
-                        <Button Command="" Text="Connect to Device" />
+                        <Button Command="{Binding ConnectToDeviceCommand}" Text="Connect to Device" />
                     </StackLayout>
                     <controls:SectionDivider/>
                     <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
                         <Label Text="Connected Board" Style="{DynamicResource MROpenBCIListItemTextStyle}"/>
-                        <Label Text="{Binding ConnectedBoardName}" 
+                        <Label Text="{Binding ConnectedBoardType}" 
                                Style="{DynamicResource DriverAssistantListItemDetailTextStyle}"/>
                     </StackLayout>
                     <controls:SectionDivider/>
                     <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
-                        <Label Text="Number of Channles" Style="{DynamicResource MROpenBCIListItemTextStyle}" />
-                        <Label Text="{Binding ConnectedBoardChannelNumber}" 
+                        <Label Text="Number of Channels" Style="{DynamicResource MROpenBCIListItemTextStyle}" />
+                        <Label Text="{Binding ConnectedBoardChannelCount}" 
                                Style="{DynamicResource DriverAssistantListItemDetailTextStyle}" />
                     </StackLayout>
                     <controls:SectionDivider/>

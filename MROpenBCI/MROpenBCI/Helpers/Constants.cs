@@ -4,7 +4,11 @@ using System.Text;
 
 namespace MROpenBCI.Helpers
 {
-    class Constants
+    public static class ApiKeys
     {
+        public const string AppCenterAndroid = "";
+        public const string AppCenteriOS = "";
+        public const string AppCenterUWP = "";
+        public const string AppCenterMacOS = "";
     }
 }
