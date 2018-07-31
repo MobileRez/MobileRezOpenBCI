@@ -22,13 +22,14 @@ namespace MROpenBCI.ViewModels
         private int connectedBoardChannelCount;
         private string connectedBoardGains;
 
+        private Board BoardInfo { get; set; }
+
 
         public FeedViewModel()
         {
             //this.serviceLocator = Settings.Current.ServiceLocater;
             LastConnectivityDisplay = "Enter IP of WiFi to Connect";
 
-            this.connectToDeviceCommand = new Command(() => this.ExecuteConnectToDeviceCommandAsync());
         }
 
 
@@ -49,13 +50,14 @@ namespace MROpenBCI.ViewModels
 
         public async Task ExecuteGetDeviceInfo()
         {
+
+            RestClientService restClientService = new RestClientService();
+            BoardInfo = new Board();
+
             try
             {
                 //TODO: clean up after working test
-                RestClientService restClientService = new RestClientService();
-                
-
-                Board BoardInfo = await restClientService.GetBoardInfo(DeviceIpAddress.Trim());
+                BoardInfo = await restClientService.GetBoardInfo(DeviceIpAddress.Trim());
 
                 if (BoardInfo == null)
                 {
@@ -86,9 +88,9 @@ namespace MROpenBCI.ViewModels
 
                     //ConnectedBoardGains = BoardInfo.gains.ToString();
                 }
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //this.PageLoadStatus = PageLoadStatus.Exception;
 
@@ -98,7 +100,9 @@ namespace MROpenBCI.ViewModels
         }
 
 
-        public ICommand ConnectToDeviceCommand => this.connectToDeviceCommand;
+        //public ICommand ConnectToDeviceCommand => this.connectToDeviceCommand;
+        public ICommand ConnectToDeviceCommand =>
+            connectToDeviceCommand ?? (connectToDeviceCommand = new Command(async () => await ExecuteConnectToDeviceCommandAsync()));
 
 
         public string LastConnectivityDisplay

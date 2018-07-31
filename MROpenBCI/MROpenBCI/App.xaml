@@ -4,14 +4,16 @@
              x:Class="MROpenBCI.App">
 	<Application.Resources>
         <!--App Colors-->
-        <Color x:Key="Primary">#12A54A</Color>
-        <Color x:Key="PrimaryDark">#0E843b</Color>
-        <Color x:Key="Accent">#7BC144</Color>
+        <Color x:Key="Primary">#1A456F</Color>
+        <Color x:Key="PrimaryDark">#0d2237</Color>
+        <Color x:Key="Accent">#8ca2b7</Color>
         <Color x:Key="NavigationText">#000000</Color>
         <Color x:Key="LabelSectionText">#6D6D72</Color>
         <Color x:Key="DetailTextColor">#979797</Color>
         <Color x:Key="BlackColor">#000000</Color>
         <Color x:Key="WhiteColor">#FFFFFF</Color>
+        <Color x:Key="LightBlackColor">#252525</Color>
+        <Color x:Key="WaterColor">#5590CC</Color>
 
         <!-- Dark Mode Colors-->
 
@@ -69,6 +71,11 @@
         <OnPlatform x:TypeArguments="x:Double" x:Key="MROpenBCIListItemDetailTextStyleSize" >
             <On Platform="Android">13</On>
             <On Platform="iOS">13</On>
+        </OnPlatform>
+        
+        <!--OnPlatformButton-->
+        <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonBorderWidth">
+            <On Platform="iOS" Value="1"/>
         </OnPlatform>
 
         <!-- Dark Mode -->
@@ -137,34 +144,91 @@
         </Style>
 
         <!--DarkTheme-->
-        
 
-        <!-- Button Styles -->
+
+        <!--Button OnPlatform Definitions-->
+        <OnPlatform x:TypeArguments="FontAttributes" x:Key="ButtonFontAttributes">
+            <On Platform="iOS" Value="Bold"/>
+        </OnPlatform>
+        
         <Style x:Key="BaseButtonStyle" TargetType="Button" >
             <Setter Property="FontAttributes" Value="{DynamicResource ButtonFontAttributes}"/>
             <Setter Property="BorderWidth" Value="{DynamicResource ButtonBorderWidth}"/>
         </Style>
-
-
+        
+        <!--PrimaryButton-->
         <OnPlatform x:TypeArguments="Color" x:Key="PrimaryButtonBackgroundColor">
             <On Platform="Android" Value="{StaticResource Primary}"/>
             <On Platform="iOS" Value="Transparent"/>
             <On Platform="UWP" Value="{StaticResource Primary}"/>
         </OnPlatform>
-        
-        <!--PrimaryButton-->
+
         <OnPlatform x:TypeArguments="Color" x:Key="PrimaryButtonTextColor">
             <On Platform="Android" Value="{StaticResource WhiteColor}"/>
             <On Platform="iOS" Value="{StaticResource Primary}"/>
             <On Platform="UWP" Value="{StaticResource WhiteColor}"/>
         </OnPlatform>
+
         <OnPlatform x:TypeArguments="Color" x:Key="PrimaryButtonBorderColor">
             <On Platform="iOS" Value="{StaticResource Primary}"/>
         </OnPlatform>
+
+        <!--PrimaryDarkButton-->
+        <OnPlatform x:TypeArguments="Color" x:Key="PrimaryDarkButtonBackgroundColor">
+            <On Platform="Android" Value="{StaticResource PrimaryDark}"/>
+            <On Platform="iOS" Value="Transparent"/>
+            <On Platform="UWP" Value="{StaticResource PrimaryDark}"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color" x:Key="PrimaryDarkButtonTextColor">
+            <On Platform="Android" Value="{StaticResource WhiteColor}"/>
+            <On Platform="iOS" Value="{StaticResource PrimaryDark}"/>
+            <On Platform="UWP" Value="{StaticResource WhiteColor}"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color" x:Key="PrimaryDarkButtonBorderColor">
+            <On Platform="iOS" Value="{StaticResource PrimaryDark}"/>
+        </OnPlatform>
+
+        <!--AccentButton-->
+        <OnPlatform x:TypeArguments="Color" x:Key="AccentButtonBackgroundColor">
+            <On Platform="Android" Value="{StaticResource Accent}"/>
+            <On Platform="iOS" Value="Transparent"/>
+            <On Platform="UWP" Value="{StaticResource Accent}"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color" x:Key="AccentButtonTextColor">
+            <On Platform="Android" Value="{StaticResource WhiteColor}"/>
+            <On Platform="iOS" Value="{StaticResource Accent}"/>
+            <On Platform="UWP" Value="{StaticResource WhiteColor}"/>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color" x:Key="AccentButtonBorderColor">
+            <On Platform="iOS" Value="{StaticResource Accent}"/>
+        </OnPlatform>
+
+        <!--Completed Button Styles-->
         <Style x:Key="PrimaryButtonStyle" TargetType="Button" BaseResourceKey="BaseButtonStyle">
             <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonBackgroundColor}"/>
             <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonTextColor}"/>
             <Setter Property="BorderColor" Value="{DynamicResource PrimaryButtonBorderColor}"/>
+        </Style>
+
+        <Style x:Key="PrimaryDarkButtonStyle" TargetType="Button" BaseResourceKey="BaseButtonStyle">
+            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryDarkButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryDarkButtonTextColor}"/>
+            <Setter Property="BorderColor" Value="{DynamicResource PrimaryDarkButtonBorderColor}"/>
+        </Style>
+
+        <Style x:Key="AccentButtonStyle" TargetType="Button" BaseResourceKey="BaseButtonStyle">
+            <Setter Property="BackgroundColor" Value="{DynamicResource AccentButtonBackgroundColor}"/>
+            <Setter Property="TextColor" Value="{DynamicResource AccentButtonColor}"/>
+            <Setter Property="BorderColor" Value="{DynamicResource AccentButtonBorderColor}"/>
+        </Style>
+
+        <Style x:Key="EntryStyle" TargetType="Label" BasedOn="{StaticResource BaseListItemTextStyle}">
+            <Setter Property="FontSize" Value="{DynamicResource SmallLabelEntryFontSize}" />
+            <Setter Property="TextColor" Value="{StaticResource LabelSectionText}"/>
         </Style>
 
         <!--Data Templates-->

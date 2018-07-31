@@ -1,0 +1,1 @@
+C:\Code\Temp\MROpenBCI\MROpenBCI\MROpenBCI.UWP\bin\ARM\Release\Upload\MROpenBCI.UWP_0.0.2.0\MROpenBCI.UWP_0.0.2.0_x86_x64_arm.appxbundle

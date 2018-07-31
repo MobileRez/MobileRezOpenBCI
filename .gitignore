@@ -7,3 +7,11 @@
 /MROpenBCI/MROpenBCI/obj
 /MROpenBCI/MROpenBCI.Android/MROpenBCI.Android.csproj.user
 /MROpenBCI/MROpenBCI.iOS/obj
+/MROpenBCI/MROpenBCI/bin
+/MROpenBCI/MROpenBCI.Android/bin
+/MROpenBCI/MROpenBCI.iOS/bin/iPhone
+/MROpenBCI/MROpenBCI.UWP/AppPackages
+/MROpenBCI/MROpenBCI.UWP/bin
+/MROpenBCI/MROpenBCI.UWP/BundleArtifacts
+/MROpenBCI/MROpenBCI.UWP/obj
+/MROpenBCI/MROpenBCI.UWP/MROpenBCI.UWP_StoreKey.pfx

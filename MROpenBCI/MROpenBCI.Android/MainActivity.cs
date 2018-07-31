@@ -1,25 +1,27 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms;
+using System.Reflection;
 
 namespace MROpenBCI.Droid
 {
-    [Activity(Label = "MROpenBCI", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    [Activity(Label = "MROpenBCI", Icon = "@mipmap/icon", LaunchMode = LaunchMode.SingleTask, 
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
+            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
 
-            base.OnCreate(bundle);
+            base.OnCreate(savedInstanceState);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, savedInstanceState);
+
+            typeof(Color).GetProperty("Accent", BindingFlags.Public | BindingFlags.Static).SetValue(null, Color.FromHex("#757575"));
+
             LoadApplication(new App());
         }
     }

@@ -22,8 +22,19 @@
                     </StackLayout>
                     <controls:SectionDivider/>
                     <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">
-                        <Entry Text="{Binding DeviceIpAddress}" Placeholder="Enter Board IP Address" />
-                        <Button Command="{Binding ConnectToDeviceCommand}" Text="Connect to Device" />
+                        <Entry Text="{Binding DeviceIpAddress}" Placeholder="Enter Board IP Address" Keyboard="Numeric" />
+                        <!--<Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Command="{Binding ConnectToDeviceCommand}" Text="Connect to Device" 
+                                    Style="{StaticResource PrimaryButtonStyle}" />
+                            <Button Grid.Column="1" Command="" Text="Scan for Device" 
+                                    Style="{StaticResource PrimaryButtonStyle}" />
+                        </Grid>-->
+                        <Button Command="{Binding ConnectToDeviceCommand}" Text="Connect to Device" 
+                                Style="{StaticResource PrimaryButtonStyle}" />
                     </StackLayout>
                     <controls:SectionDivider/>
                     <StackLayout BackgroundColor="White" Padding="{StaticResource StandardPadding}">

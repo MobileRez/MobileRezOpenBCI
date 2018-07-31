@@ -12,6 +12,7 @@ namespace MROpenBCI.Services
     {
         const string AcceptHeaderApplicationJson = "application/json";
         private string restServiceBaseAddress;
+        HttpResponseMessage dataResp;
 
         private HttpClient CreateRestClient(string baseAddress)
         {
@@ -30,26 +31,31 @@ namespace MROpenBCI.Services
         public async Task<Board> GetBoardInfo(string baseAddress)
         {
             var jsonResponse = string.Empty;
-
+            dataResp = new HttpResponseMessage();
+            
             string fullAddress = "http://" + baseAddress + "/board";
 
             using (var client = CreateRestClient(fullAddress))
             {
-                var dataResp = await client.GetAsync("", HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
+                //var dataResp = await client.GetAsync("", HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
+                dataResp = await client.GetAsync("", HttpCompletionOption.ResponseContentRead);
 
                 //If we do not get a successful status code, then return an empty set
                 if (!dataResp.IsSuccessStatusCode)
                     throw new Exception("Could not talk to Device");
 
-                jsonResponse = await dataResp.Content.ReadAsStringAsync().ConfigureAwait(false);
+                //jsonResponse = await dataResp.Content.ReadAsStringAsync().ConfigureAwait(false);
+                jsonResponse = await dataResp.Content.ReadAsStringAsync();
             }
 
             if (string.IsNullOrEmpty(jsonResponse))
                 return null;
 
             //var parsedResponse = JsonConvert.DeserializeObject<Board>(jsonResponse);
+            /*var parsedResponse = await Task.Factory.StartNew(() =>
+                JsonConvert.DeserializeObject<Board>(jsonResponse)).ConfigureAwait(false); */
             var parsedResponse = await Task.Factory.StartNew(() =>
-                JsonConvert.DeserializeObject<Board>(jsonResponse)).ConfigureAwait(false);
+                JsonConvert.DeserializeObject<Board>(jsonResponse));
 
             return parsedResponse;
         }

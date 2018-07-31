@@ -1,7 +1,11 @@
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
+using MROpenBCI.Helpers;
 using MROpenBCI.Interfaces;
 using MROpenBCI.Pages.Home;
 using MROpenBCI.Services;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinUniversity.Services;
@@ -22,11 +26,11 @@ namespace MROpenBCI
 
             //var navSerivice = (FormsNavigationPageService)Settings.Current.ServiceLocater.Get<INavigationService>();
 
-            /*TODO: Uncomment when adding VS App Center Support */
-            //AppCenter.Start("android=" + ApiKeys.AppCenterAndroid + ";ios=" + ApiKeys.AppCenteriOS + ";uwp=" + ApiKeys.AppCenterUWP,
-            //    typeof(Analytics), typeof(Crashes), typeof(Distribute));
-            //Analytics.SetEnabledAsync(true);
-            //AppCenter.LogLevel = LogLevel.Verbose;
+
+            AppCenter.Start("android=" + ApiKeys.AppCenterAndroid + ";ios=" + ApiKeys.AppCenteriOS + ";uwp=" + ApiKeys.AppCenterUWP,
+                typeof(Analytics), typeof(Crashes), typeof(Distribute));
+            Analytics.SetEnabledAsync(true);
+            AppCenter.LogLevel = LogLevel.Verbose;
 
             InitializeComponent();
 
